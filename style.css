@@ -141,7 +141,7 @@ body{
 .media-wrap{
   width:100%;
   background:transparent; /* remove grey box so image shows in its natural shape */
-  overflow:visible;
+  overflow:hidden; /* prevent image overflow that can cause overlap */
   display:block;
   border-radius: 2px;
   position:relative;
@@ -172,6 +172,8 @@ body{
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap:2rem;
   margin-top:1.5rem;
+  align-items: start; /* ensure items align to top so varying heights don't overlap */
+  grid-auto-rows: auto;
 }
 
 .gallery-item{ text-decoration:none; color:inherit; display:block }
@@ -234,7 +236,8 @@ body{
 .gallery-item.featured .media-wrap{ display:flex; align-items:center; justify-content:center }
 .gallery-item.featured .media-wrap img{ max-height:70vh; width:auto; height:auto }
 
-@media (max-width:900px){
+/* Make featured occupy single column on smaller viewports to avoid layout issues */
+@media (max-width:1000px){
   .gallery-item.featured{ grid-column: span 1; }
   .gallery-item.featured .media-wrap img{ max-height:50vh }
 }
