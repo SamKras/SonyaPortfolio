@@ -325,4 +325,17 @@ a:focus{ outline: 3px solid rgba(28,28,28,0.12); outline-offset:3px; }
   .hero-subtitle{ letter-spacing:0.12em; }
 }
 
+/* Fix: ensure section titles (e.g., "Retouch Gallery") sit above tall gallery images on small screens */
+@media (max-width:700px){
+  .section-title{
+    margin-top: 2.2rem; /* more breathing room above the grid */
+    position: relative;
+    z-index: 3;
+    background: transparent;
+    padding-bottom: 0.15rem;
+  }
+  /* Prevent gallery images from visually overlapping the heading during layout/reveal */
+  .gallery-grid{ margin-top: 1rem; }
+}
+
 /* Small print: keep visuals minimal and elegant */
