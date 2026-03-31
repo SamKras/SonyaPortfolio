@@ -258,6 +258,14 @@ body{
   .ai-gallery .gallery-item.featured .media-wrap img{ max-height:44vh }
 }
 
+/* Mobile: make AI gallery two columns for small screens */
+@media (max-width:700px){
+  .ai-gallery{ grid-template-columns: repeat(2, 1fr); gap:0.75rem; }
+  .ai-gallery .gallery-item .media-wrap img{ max-height:36vh; width:100%; height:auto; }
+  /* ensure featured items don't break layout on mobile */
+  .ai-gallery .gallery-item.featured{ grid-column: span 1; }
+}
+
 /* ---------- CONTACT / FOOTER ---------- */
 .contact{
   padding: 14vh 0;
